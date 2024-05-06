@@ -263,6 +263,14 @@ function trigger.action.outTextForCoalition(coalition, text, displayTime, clearv
 ---@param clearview? boolean -- Defines whether or not to use the old message display format which overwrites existing messages.
 function trigger.action.outTextForGroup(groupId, text, displayTime, clearview) end
 
+---Displays the passed string of text for the specified time to all players in the specified unit. The unit is defined by its unitId.
+---Boolean clearview defines whether or not to use the old message display format. The old message display overwrites existing messages and is good for displaying anything that must be updated at a high rate like lap times.
+---@param unitId integer -- The id of the unit to which the text will be displayed.
+---@param text string -- The text to be displayed to the unit.
+---@param displayTime number -- The duration for which the text will be displayed.
+---@param clearview? boolean -- Defines whether or not to use the old message display format which overwrites existing messages.
+function trigger.action.outTextForUnit(unitId, text, displayTime, clearview) end
+
 --- Removes a mark panel from the F10 map.
 --- @param id integer
 function trigger.action.removeMark(id) end
