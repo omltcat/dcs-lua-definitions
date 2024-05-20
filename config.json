@@ -15,7 +15,8 @@
             "lfs",
             "io",
             "os",
-            "mist"
+            "mist",
+            "log"
         ]
     }
 }

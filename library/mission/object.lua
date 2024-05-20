@@ -66,6 +66,14 @@ function Object:getTypeName() end
 ---@return vec3
 function Object:getVelocity() end
 
+---Returns a boolean value if the object in question has the passed attribute.<br>
+---See [Article list of Attributes](https://wiki.hoggitworld.com/view/DCS_enum_attributes) for more details.<br>
+---Additionally, attributes for each object are defined within their DB lua file. DB files provided on [github](https://github.com/mrSkortch/DCS-miscScripts/tree/master/ObjectDB) for reference.<br>
+---Function also works with Unit, Weapon, Static Object, Scenery Object, Airbase.
+---@param attribute string -- The attribute to check for.
+---@return boolean -- True if the object has the attribute, false otherwise.
+function Object:hasAttribute(attribute) end
+
 ---Returns a boolean value if the object in question is in the air.
 ---@return boolean
 function Object:inAir() end

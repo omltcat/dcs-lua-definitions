@@ -3,6 +3,16 @@
 ---@class net
 net = {}
 
+---Executes a lua string in a given lua environment in the game.
+---@param state 'mission'|'gui'|'server'|'export'|'config' -- The lua environment in the game.<br>
+--- `'mission'`: holds current mission <br>
+--- `'server'`: GUI (hooks) environment <br>
+--- `'export'`: runs $WRITE_DIR/Scripts/Export.lua and the relevant export API <br>
+--- `'config'`: the state in which $INSTALL_DIR/Config/main.cfg is executed, as well as $WRITE_DIR/Config/autoexec.cfg. Used for configuration settings <br>
+---@param dostring string -- The lua string to be executed.
+---@return string -- The result of the lua string execution.
+function net.dostring_in(state, dostring) end
+
 ---Forces the player to occupy the set slot.<br>
 ---SlotId matches unit Ids of client aircraft. The exception being Combined Arms slots and multicrew slots. The latter of which have "_X" appended to denote the seat.
 ---SideID:
@@ -56,3 +66,9 @@ function net.lua2json(lua) end
 ---@param json string
 ---@return table
 function net.json2lua(json) end
+
+---Kicks a player from the server. Can display a message to the user.
+---@param playerId integer -- The id of the player to be kicked.
+---@param message string? -- The message to player received after kicked.
+---@return boolean
+function net.kick(playerId, message) end

@@ -139,9 +139,9 @@ function missionCommands.removeItemForCoalition(coalition, path) end
 ---@param name string -- The name of the command.
 ---@param path table | nil -- Optional. Defines whether the command will be in a named submenu.
 ---@param functionToRun function -- The function to be run when the command is selected.
----@param anyArguement any -- Optional. Any argument to be passed to the function.
+---@param ... any -- Optional. Any argument to be passed to the function.
 ---@return table -- A table indicating where in the F10 menu the command resides.
-function missionCommands.addCommandForGroup(groupId, name, path, functionToRun, anyArguement) end
+function missionCommands.addCommandForGroup(groupId, name, path, functionToRun, ...) end
 
 ---Creates a submenu of a specified name for the specified group. Can be used to create nested submenus. If the path is not specified, submenu is added to the root menu.<br>
 ---This function returns a table indicating where in the F10 menu the submenu resides.<br>
