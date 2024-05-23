@@ -38,9 +38,9 @@ missionCommands = {}
 ---@param name string -- The name of the command to be displayed in the F10 Other menu.
 ---@param path table | nil -- Defines whether the command will be in a named submenu.
 ---@param functionToRun function -- The function to be run.
----@param anyArguement any -- Optional. Any passed values.
+---@param ... any -- Optional. Any passed values.
 ---@return table -- A table indicating where in the F10 menu the command resides.
-function missionCommands.addCommand(name, path, functionToRun, anyArguement) end
+function missionCommands.addCommand(name, path, functionToRun, ...) end
 
 ---Creates a submenu of a specified name for all players. Can be used to create nested submenus. If the path is not specified, submenu is added to the root menu.<br>
 ---Function returns a table indexed numerically indicating where in the F10 menu the submenu resides.<br>
@@ -100,9 +100,9 @@ function missionCommands.removeItem(path) end
 ---@param name string -- The name of the command.
 ---@param path table | nil -- Optional. Defines whether the command will be in a named submenu.
 ---@param functionToRun function -- The function to be run when the command is selected.
----@param anyArguement any -- Optional. Any argument to be passed to the function.
+---@param ... any -- Optional. Any argument to be passed to the function.
 ---@return table -- A table indicating where in the F10 menu the command resides.
-function missionCommands.addCommandForCoalition(coalition, name, path, functionToRun, anyArguement) end
+function missionCommands.addCommandForCoalition(coalition, name, path, functionToRun, ...) end
 
 ---Creates a submenu of a specified name for the specified coalition. Can be used to create nested submenus. If the path is not specified, submenu is added to the root menu.<br>
 ---This function returns a table indicating where in the F10 menu the submenu resides.<br>
