@@ -18,9 +18,7 @@ These definitions are pulled from Hoggit Wiki [Simulator Scripting Engine Docume
 
 ## Current State
 
-At this point, *most* of the mission scripting environment definitions are in place. As I started with the most commonly used ones, some may still be missing. If you find any missing or incorrect definitions, you are welcome to open an issue or a pull request.
-
-Other environments, like hooks and export are mostly uncharted territory. I will be working on when mission is complete. Naturally, I would appreciate any help at the mean time as I am not very familiar with them.
+At this point, *most* of the mission scripting and GUI (hook) environment definitions are in place. As I started with the most commonly used ones, some may still be missing. If you find any missing or incorrect definitions, you are welcome to open an issue or a pull request. We are still missing GUI Callbacks definitions.
 
 When this project is more complete, I will PR it to [LLS-Addons](https://github.com/LuaLS/LLS-Addons) so that it can be installed directly from the Lua extension's Addon Manager.
 
