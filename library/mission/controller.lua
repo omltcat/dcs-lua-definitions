@@ -28,6 +28,17 @@ function Controller:resetTask() end
 ---@param command table -- The command to be set.
 function Controller:setCommand(command) end
 
+---Options are a pair of identifier and value.<br>
+---Behavior options are global parameters and will affect controller behavior in all tasks it performs.<br>
+---Options are executed immediately.<br>
+---For example, Rules of Engagement (ROE) are an option that can dictate whether or not a group is currently allowed to attack.<br>
+---This option can over-ride tasking to attack specific targets.<br>
+---Unlike Tasks and Commands, options are organized by id and value.<br>
+---See [Available Options](https://wiki.hoggitworld.com/view/DCS_func_setOption)
+---@param optionId enum -- The identifier of the option.
+---@param optionValue enum|boolean -- The value of the option.
+function Controller:setOption(optionId, optionValue) end
+
 ---Sets the controlled group to go the specified speed in meters per second.<br>
 ---Optional boolean `keep` when set to true will maintain that speed on passing waypoints.<br> 
 ---If `keep` is not present or false, the controlled group will return to the speed as defined by their route.<br>

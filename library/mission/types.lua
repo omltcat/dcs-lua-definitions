@@ -3,15 +3,21 @@
 ---Object being called when a event handler is triggered.<br>
 ---Depending on the event, the object may have different fields.<br>
 ---@class event
+---@field comment string?
+---@field coalition coalition.side?
+---@field decs table?
+---@field groupID integer?
 ---@field id integer
----@field time number
+---@field idx integer?
 ---@field initiator Unit?
+---@field target Unit?
+---@field place Airbase?
+---@field pos vec3?
+---@field subPlace integer?
+---@field text string?
+---@field time number
 ---@field weapon Weapon?
 ---@field weapon_name string?
----@field target Unit?
----@field comment string?
----@field place Airbase?
----@field subPlace integer?
 
 ---`vec2.x = vec3.x = north`<br>`vec2.y = vec3.z = east`
 ---@class vec2

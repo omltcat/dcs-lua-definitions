@@ -97,6 +97,7 @@ country.id = {
     ["KUWAIT"] = 71
 }
 
+---@enum country.name
 country.name = {
     [1] = "UKRAINE",
     [2] = "USA",
