@@ -42,6 +42,29 @@ function Unit:getController() end
 ---@return number
 function Unit:getDrawArgumentValue(arg) end
 
+---Returns a percentage of the current fuel remaining in an aircraft's inventory based on the maximum possible fuel load.<br>
+---Value ranges from 0.00 to 1.00. If external fuel tanks are present the value may display above 1.0.<br>
+---Fuel is always drained from the external tanks before moving to internal tanks.<br>
+---Ground vehicles and ships will always return a value of 1.0.<br>
+---Example:<br>
+---The following is the fuel returned for a flight of 4 F-15C.<br>
+---The flight lead has 0 external fuel tanks with each subsequent wingman adding a 610 Gal external fuel tank to their payload.<br>
+---```
+--- local flightFuel = {}
+---for i, unitObject in pairs(Group.getByName('flight'):getUnits()) do
+---    flightFuel[i] = Unit.getFuel(unitObject)
+---end
+---```
+---Returns the following:
+---```
+---Unit 1 Fuel: 1
+---Unit 2 Fuel: 1.3026511669159
+---Unit 3 Fuel: 1.6053023338318
+---Unit 4 Fuel: 1.9079535007477
+---```
+---@return number
+function Unit:getFuel() end
+
 ---Returns the Group object that the Unit belongs to.
 ---@return Group
 function Unit:getGroup() end
