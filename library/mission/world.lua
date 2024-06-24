@@ -106,7 +106,7 @@ world.BirthPlace = {
 ---    myBaseTbl[info.callsign] = info
 ---end
 ---```
----@return table
+---@return Airbase[]
 function world.getAirbases() end
 
 ---Returns a table of mark panels and drawn shapes indexed numerically that are present within the mission.<br>

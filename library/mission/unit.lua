@@ -19,7 +19,7 @@ function Unit.getByName(name) end
 
 
 ---Returns an ammo table for all types of loaded ammunition on a given object.
----@return table -- Ammo table is indexed by ammo type and contains a weapon description table and a count variable defining "how many" is on board.
+---@return {count: integer, desc: WeaponDesc}[] -- Ammo table is indexed by ammo type and contains a weapon description table and a count variable defining "how many" is on board.
 function Unit:getAmmo() end
 
 ---Returns a localized string of the unit's callsign.<br>

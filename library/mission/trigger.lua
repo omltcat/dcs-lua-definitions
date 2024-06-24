@@ -316,7 +316,7 @@ function trigger.misc.getUserFlag(flagNumOrName) end
 
 ---Returns a trigger zone table of a given name.
 ---@param zoneName string -- The name of the trigger zone.
----@return zone -- The trigger zone table. Format: { point = vec3, radius = distance }
+---@return zone? -- The trigger zone table. Format: { point = vec3, radius = distance }
 function trigger.misc.getZone(zoneName) end
 
 ---Sets a user flag to the specified value.

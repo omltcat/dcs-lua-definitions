@@ -43,6 +43,8 @@ Weapon.WarheadType = {
 ---@class WeaponDesc: ObjectDesc
 ---@field category Weapon.Category
 ---@field warhead WeaponDesc.warhead
+---@field missileCategory Weapon.MissileCategory?
+---@field guidance Weapon.GuidanceType?
 
 ---@class WeaponDesc.warhead
 ---@field explosiveMass number?

@@ -2,6 +2,7 @@
 
 ---@class Controller
 Controller = {}
+---@enum Controller.Detection
 Controller.Detection = {
     VISUAL  = 1,
     OPTIC   = 2,
@@ -54,3 +55,10 @@ function Controller:setSpeed(speed, keep) end
 ---[Available Tasks](https://wiki.hoggitworld.com/view/DCS_func_setTask)
 ---@param task table -- The task to be set.
 function Controller:setTask(task) end
+
+---Forces the controller to become aware of the specified target, without the controller manually detecting the object itself.<br>
+---Applies only to a Unit Controller. Cannot be used at the group level.
+---@param target Object
+---@param knowType boolean
+---@param knowDistance boolean
+function Controller:knowTarget(target, knowType, knowDistance) end
