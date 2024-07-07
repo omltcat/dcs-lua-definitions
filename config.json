@@ -2,9 +2,12 @@
     "$schema": "https://raw.githubusercontent.com/LuaLS/LLS-Addons/main/schemas/addon_config.schema.json",
     "name": "DCS World",
     "words": [
+        "onEvent",
+        "world%.addEventHandler",
         "Unit%.getByName",
         "Group%.getByName",
-        "trigger%.action%."
+        "trigger%.action",
+        "trigger%.misc"
     ],
     "files": [
         "mist_.+%.lua",

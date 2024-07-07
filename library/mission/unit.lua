@@ -1,7 +1,6 @@
 ---@meta
 
 ---@class Unit: CoalitionObject
----@field id_ integer
 Unit = {}
 ---@enum Unit.Category
 Unit.Category = {
@@ -11,6 +10,16 @@ Unit.Category = {
     SHIP          = 3,
     STRUCTURE     = 4
 }
+
+---Sets the radar emitters of the passed group or unit objects on or off.<br>
+---Can be used on SAM sites, for example, to shut down the radar without setting AI off or changing the alarm state.<br>
+---Example:
+---```
+---local unit = Unit.getByName('samSiteUnit1')
+---unit:enableEmission(false) -- Turns off the radar emitter
+---```
+---@param setting boolean -- True to turn on the radar emitter, false to turn it off.
+function Unit:enableEmission(setting) end
 
 ---Returns the unit object by its name (not player name)
 ---@param name string
@@ -31,6 +40,21 @@ function Unit:getCallsign() end
 ---Ships and ground units can only be controlled at a group level. Airplanes and helicopters can be controlled at both a group and unit level.
 ---@return Controller
 function Unit:getController() end
+
+---Returns the number of infantry that can be embarked onto the aircraft.<br>
+---Only applicable to airplanes or helicopters. Returns nil for ground or ship units.<br>
+---Example:
+---```
+---local heli = Unit.getByName('transportHeli')
+---local capacity = heli:getDescentCapacity()
+---if capacity then
+---    print("Capacity to embark infantry: " .. capacity)
+---else
+---    print("This unit cannot embark infantry.")
+---end
+---```
+---@return number? -- The number of infantry that can be embarked, or nil if not applicable.
+function Unit:getDescentCapacity() end
 
 ---Returns the current value for an animation argument on the external model of the given object.<br>
 ---Each model animation has an id tied to with different values representing different states of the model.<br>
@@ -92,6 +116,20 @@ function Unit:getLife() end
 ---```
 ---@return number
 function Unit:getLife0() end
+
+---Returns a table of friendly cargo objects indexed numerically and sorted by distance from the helicopter.<br>
+---Only applicable to helicopters. Returns nil for other unit types.<br>
+---Example:
+---```
+---local cargo = Unit.getByName('whoopwhoop'):getNearestCargos()
+---for i = 1, #cargo do
+---    if Object.getDesc(cargo[i]).typeName == 'ammo_cargo' then
+---        return cargo[i]
+---    end
+---end
+---```
+---@return table? -- A table of cargo objects sorted by distance, or nil if not applicable.
+function Unit:getNearestCargos() end
 
 ---Returns a string value of the name of the player if the unit is currently controlled by a player.
 ---@return string -- The name of the player controlling the unit, or nil if the unit is controlled by AI.

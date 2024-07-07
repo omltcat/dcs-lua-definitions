@@ -1,6 +1,7 @@
 ---@meta
 
 ---@class Object
+---@field id_ integer
 Object = {}
 
 ---@enum Object.Category

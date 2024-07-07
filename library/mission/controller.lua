@@ -12,6 +12,10 @@ Controller.Detection = {
     DLINK   = 32
 }
 
+---Returns true if the controller currently has a task.
+---@return boolean
+function Controller:hasTask() end
+
 ---Pushes the specified task to the front of the tasking queue. If no other tasks are currently active it will function effectively the same as `Controller.setTask()`.<br>
 ---[Available Tasks](https://wiki.hoggitworld.com/view/DCS_func_pushTask)
 ---@param task table -- The task to be pushed to the front of the queue.

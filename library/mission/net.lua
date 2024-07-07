@@ -57,6 +57,23 @@ function net.get_player_list() end
 ---@return netPlayerInfo -- The table of attributes for the player.
 function net.get_player_info(playerID, attribute) end
 
+--- Returns a statistic from a given player.<br>
+--- Attributes:
+---```
+--- net.PS_PING  -- (0) ping (in ms)
+--- net.PS_CRASH -- (1) number of crashes
+--- net.PS_CAR   -- (2) number of destroyed vehicles
+--- net.PS_PLANE -- (3) number of destroyed planes/helicopters
+--- net.PS_SHIP  -- (4) number of destroyed ships
+--- net.PS_SCORE -- (5) total score
+--- net.PS_LAND  -- (6) number of landings
+--- net.PS_EJECT -- (7) number of ejects
+---```
+--- @param playerID number The ID of the player.
+--- @param statID number The ID of the statistic to retrieve.
+--- @return number The requested statistic for the specified player.
+function net.get_stat(playerID, statID) end
+
 ---Converts a lua value to a JSON string.
 ---@param lua any
 ---@return string
@@ -72,3 +89,28 @@ function net.json2lua(json) end
 ---@param message string? -- The message to player received after kicked.
 ---@return boolean
 function net.kick(playerId, message) end
+
+---Loads the specified mission.<br>
+---Example: Loads a mission from your saved games/missions folder. 
+---```
+---net.load_mission(lfs.writeDir() .. 'Missions\\' .. 'MyTotallyAwesomeMission.miz')
+---```
+---@param fileName string -- The path and name of the mission file to load.
+---@return boolean -- True if the mission was successfully loaded, false otherwise.
+function net.load_mission(fileName) end
+
+---Loads the next mission from the server mission list.
+---@return boolean -- True if the next mission was successfully loaded, false if at the end of the list.
+function net.load_next_mission() end
+
+---Sends a chat message.
+---@param message string
+---@param all boolean
+function net.send_chat(message, all) end
+
+---Sends a chat message to the player with the passed id.<br>
+---If the optional fromId is set, then the player will appear to receive a message from that player.
+---@param message string
+---@param playerId number
+---@param fromId number?
+function net.send_chat_to(message, playerId, fromId) end
