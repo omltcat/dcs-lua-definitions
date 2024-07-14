@@ -72,6 +72,48 @@ function trigger.action.signalFlare(vec3, flareColor, azimuth) end
 ---@param message? string -- The message to display when the arrow is added.
 function trigger.action.arrowToAll(coalition, id, startPoint, endPoint, color, fillColor, lineType, readOnly, message) end
 
+---Creates the defined shape on the F10 map. Uses the same definitions as the specific functions to create different shapes with the only difference being the first parameter is used to define the shape. This function does have an additional type of shape of "freeform" which allows you to create an 3+ vertices shape in any format you wish. <br>
+---Shape Ids:
+--- - 1 Line
+--- - 2 Circle
+--- - 3 Rect
+--- - 4 Arrow
+--- - 5 Text
+--- - 6 Quad
+--- - 7 Freeform <br>
+---Coalition Ids to be used. <br>
+--- - -1 All
+--- - 0 Neutral
+--- - 1 Red
+--- - 2 Blue <br>
+---Id MUST be unique and is shared with the ids used with mark panels. Likewise trigger.action.removeMark is used to remove shapes created. <br>
+---Points of the polygon. (notice: can not use unpack() ) <br>
+---Color format is {r, g, b, a} with values 0 to 1. A red line with 50% alpha would be {1, 0, 0, 0.5} <br>
+---Color is the color used for the outline around the shape. <br>
+---Colorfill corresponds to the shading of the shape. <br>
+---LineType corresponds to an enumerator value. LineTypes:
+--- - 0  No Line
+--- - 1  Solid
+--- - 2  Dashed
+--- - 3  Dotted
+--- - 4  Dot Dash
+--- - 5  Long Dash
+--- - 6  Two Dash <br>
+---readOnly denotes whether in the future if clients will be allowed to edit or remove the shape. <br>
+---Message corresponds to an message box that will appear when the shape is added. <br>
+---@param shapeId number -- The coalition id.
+---@param coalition coalition.side|integer -- The coalition id.
+---@param id integer -- The unique id.
+---@param point1 vec3 -- The start of the polygon.
+---@param point2 vec3 -- The point of the polygon.
+---@param pointN anyValid -- Any rest point of the polygon.
+---@param color table -- The color of the outline.
+---@param fillColor table -- The color used for shading the shape.
+---@param lineType integer -- The type of the line.
+---@param readOnly? boolean -- Whether the circle is read only.
+---@param message? string -- The message to display when the circle is added.
+function trigger.action.markupToAll(shapeId , coalition , id , point1, point2, pointN , color , fillColor , lineType , readOnly, message) end
+
 ---Creates a circle on the map with a given radius, color, fill color, and outline. <br>
 ---Coalition Ids to be used: 
 --- - -1 All
