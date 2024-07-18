@@ -88,6 +88,7 @@ function trigger.action.arrowToAll(coalition, id, startPoint, endPoint, color, f
 --- - 2 Blue <br>
 ---Id MUST be unique and is shared with the ids used with mark panels. Likewise trigger.action.removeMark is used to remove shapes created. <br>
 ---Points of the polygon. (notice: can not use unpack() ) <br>
+---Use as many points as needed here, ther is not a set amount. <br>
 ---Color format is {r, g, b, a} with values 0 to 1. A red line with 50% alpha would be {1, 0, 0, 0.5} <br>
 ---Color is the color used for the outline around the shape. <br>
 ---Colorfill corresponds to the shading of the shape. <br>
@@ -105,14 +106,14 @@ function trigger.action.arrowToAll(coalition, id, startPoint, endPoint, color, f
 ---@param coalition coalition.side|integer -- The coalition id.
 ---@param id integer -- The unique id.
 ---@param point1 vec3 -- The start of the polygon.
----@param point2 vec3 -- The point of the polygon.
----@param pointN anyValid -- Any rest point of the polygon.
+---@param point2 vec3 -- The next of the polygon.
+---@param pointN vec3 -- Any rest of the points of the polygon.
 ---@param color table -- The color of the outline.
 ---@param fillColor table -- The color used for shading the shape.
 ---@param lineType integer -- The type of the line.
 ---@param readOnly? boolean -- Whether the circle is read only.
 ---@param message? string -- The message to display when the circle is added.
-function trigger.action.markupToAll(shapeId , coalition , id , point1, point2, pointN , color , fillColor , lineType , readOnly, message) end
+function trigger.action.markupToAll(shapeId, coalition, id, point1, point2, pointN, color, fillColor, lineType, readOnly, message) end
 
 ---Creates a circle on the map with a given radius, color, fill color, and outline. <br>
 ---Coalition Ids to be used: 
