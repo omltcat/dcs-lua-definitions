@@ -338,6 +338,18 @@ function trigger.action.setMarkupColorFill(id, colorFill) end
 ---@param text string -- The new text value for the mark.
 function trigger.action.setMarkupText(id, text) end
 
+---Sets the internal cargo for the specified unit at the specified mass. Overrides any previously set value.
+---Can be used in conjunction with troop transport to simulate cargo being added to the aircraft.
+---Applicable to airplanes and helicopters. Mass is defined in kilograms.
+---Example:
+---```
+---local mass = 5000
+---trigger.action.setUnitInternalCargo('Cargo Plane', mass)
+---```
+---@param unitName string -- The name of the unit.
+---@param mass number -- The mass of the cargo in kilograms.
+function trigger.action.setUnitInternalCargo(unitName, mass) end
+
 ---Creates a text imposed on the map at a given point. Text scales with the map.
 ---@param coalition coalition.side|integer -- Coalition Ids to be used. -1 for All, 0 for Neutral, 1 for Red, 2 for Blue.
 ---@param id integer -- Id MUST be unique and is shared with the ids used with mark panels. Likewise trigger.action.removeMark is used to remove shapes created.
