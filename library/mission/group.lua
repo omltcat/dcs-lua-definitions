@@ -18,8 +18,15 @@ Group.Category = {
 ---@return Group
 function Group.getByName(name) end
 
+---Activates the group if the group has a delayed start or late activation. 
+function Group:activate() end
+
 ---Destroys the group, physically removing it from the game world without creating an event. The entire group simply disappears.
 function Group:destroy() end
+
+---Sets the passed group radar emitters on or off. Can be used on sam sites for example to shut down the radar without setting AI off or changing the alarm state.
+---@param setting boolean
+function Group:enableEmission(setting) end
 
 ---Returns an enumerator of the category for the specific group. <br>
 ---See enumerators Group.Category for further reference.
