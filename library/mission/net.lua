@@ -27,7 +27,7 @@ function net.force_player_slot(playerID, sideId, slotId) end
 
 ---Returns the name of a given player.<br>Is the same as `net.get_player_info(playerID, 'name')`.
 ---@param playerID integer -- from `net.get_player_list()`
----@return string
+---@return string playerName Name of player from given ID
 function net.get_name(playerID) end
 
 ---Returns a table of players currently connected to the server.
@@ -75,7 +75,7 @@ function net.get_player_info(playerID, attribute) end
 function net.get_stat(playerID, statID) end
 
 ---Converts a lua value to a JSON string.
----@param lua any
+---@param lua any 
 ---@return string
 function net.lua2json(lua) end
 
@@ -90,6 +90,8 @@ function net.json2lua(json) end
 ---@return boolean
 function net.kick(playerId, message) end
 
+---# SERVER ONLY
+---___
 ---Loads the specified mission.<br>
 ---Example: Loads a mission from your saved games/missions folder. 
 ---```
@@ -99,6 +101,8 @@ function net.kick(playerId, message) end
 ---@return boolean -- True if the mission was successfully loaded, false otherwise.
 function net.load_mission(fileName) end
 
+---# SERVER ONLY
+---___
 ---Loads the next mission from the server mission list.
 ---@return boolean -- True if the next mission was successfully loaded, false if at the end of the list.
 function net.load_next_mission() end
@@ -114,3 +118,167 @@ function net.send_chat(message, all) end
 ---@param playerId number
 ---@param fromId number?
 function net.send_chat_to(message, playerId, fromId) end
+
+---Returns the playerID of the local player. Always returns 1 for server. 
+---___
+---@return number playerID Id of local player.
+function net.get_my_player_id() end
+
+---Returns the playerID of the server. Currently always 1. 
+---___
+---@return number playerID Id of server player.
+function net.get_server_id() end
+
+---Returns the sideId and slotId of a given player. Is the same as net.get_player_info(playerID, 'side') and net.get_player_info(playerID, 'slot')
+---___
+---@param playerID number ID of player.
+---@return coalition.side sideID Players coalition side ID.
+---@return number slotID Players slot ID
+function net.get_slot(playerID) end
+
+---net.log("string") will write an "INFO" entry to the DCS log file, with the message "LuaNET (Main): string"<br>
+---The full set of arguments supported for net.log() are currently undocumented. 
+---@param msg string The string to write to log file.
+function net.log(msg) end
+
+---Receive chat message locally[, pretending it was sent by another player].
+--- - from = 0 means from the system
+---___
+---@param message string Message to receive.
+---@param from number If message should come from system.
+function net.recv_chat(message, from) end
+
+---@class chatHistory
+---@field abstime number Chat time.
+---@field side coalition.side Coalition chat is from.
+---@field playerName string Name of player that sent chat.
+---@field message string Chat message.
+
+---Returns last chat messages starting from a given index.
+---___
+---Example:
+---```lua
+--- local chatIndex = 0;
+--- local chatHistory = {}
+--- chatHistory, chatIndex = net.get_chat_history(chatIndex)
+---```
+---@param from number Index to start getting chat history from.
+---@return chatHistory[] chatHistory Chat history table.
+---@return number chatIndex Index of chat.
+function net.get_chat_history(from) end
+
+---@class netBanPlayerInfo
+---@field ucid string Unique Client Identifier.
+---@field ipaddr string IP address string.
+---@field name string Player name at the time of the ban.
+---@field banned_from number Unix time of ban start.
+---@field banned_until number Unix time of ban end.
+
+---# SERVER ONLY
+---___
+---Returns an array of active ban records.
+---___
+---Each record contains:
+--- - 'ucid': Unique Client IDentifier
+--- - 'ipaddr': IP address string
+--- - 'name': player name at the time of the ban
+--- - 'reason': ban reason string
+--- - 'banned_from': unix-time of ban start
+--- - 'banned_until': unix-time of ban end
+---___
+---@return netBanPlayerInfo[] netPlayerBans Array of netBanPlayerInfo tables.   
+function net.banlist_get() end
+
+
+--- # SERVER ONLY
+---___
+---Adds a ban and kicks the player of 'id'. <br>
+---'period' is the duration of ban in seconds.
+---___
+---@param id string UCID of player to ban.
+---@param period integer Number of seconds to ban the player.
+---@param reason string Why the player is getting banned.
+---@return boolean success Was the player successfully banned.
+function net.banlist_add(id, period, reason) end
+
+
+--- # SERVER ONLY
+---___
+---Lifts the ban from a player with the given 'ucid'.
+---___
+---@param ucid string UCID of player to lift ban.
+---@return boolean success Was the player successfully removed from the ban list.
+function net.banlist_remove(ucid) end
+
+---@class netMissionList
+---@field listLoop boolean Is the missiion list looping.
+---@field listShuffle boolean Does the mission list shuffle missions.
+---@field missionList string[] Array of mission list names.
+---@field current string Name of the current mission.
+
+--- # SERVER ONLY
+---___
+---Returns a table with current mission list.
+---___
+---Fields:
+--- - 'listLoop': bool
+--- - 'listShuffle': bool
+--- - 'missionList': array of mission filenames
+--- - 'current' : index of the current mission
+---___
+---@return netMissionList missionList  Table with the current mission list.
+function net.missionlist_get() end
+
+--- # SERVER ONLY
+---___
+---Adds a mission to the list.
+---___
+---@param miz_filename string Name of the file to add to the mission list.  
+---@return boolean success Was the mission successfully added to the list.
+function net.missionlist_append(miz_filename) end
+
+--- # SERVER ONLY
+---___
+---Deletes a mission from the list at the given index.
+---___
+---@param miz_index integer Index of mission to remove.
+---@return boolean success Was the mission successfully removed from the list.
+function net.missionlist_delete(miz_index) end
+
+--- # SERVER ONLY
+---___
+---Moves a mission to a new location in the list.
+---___
+---@param old_index integer Index of mission to move.
+---@param new_index integer Index to move the mission to.
+---@return boolean success Was the mission successfully moved.
+function net.missionlist_move(old_index, new_index) end
+
+--- # SERVER ONLY
+---___
+---Set the server to shuffle, or not to shuffle, the mission list.
+---___
+---@param bool boolean Shuffle the list or not.
+function net.missionlist_set_shuffle(bool) end
+
+--- # SERVER ONLY
+---___
+---Set the server to loop, or not to loop, the mission list.
+---___
+---@param bool boolean Loop the list or not.
+function net.missionlist_set_loop(bool) end
+
+--- # SERVER ONLY
+---___
+---Runs a mission at the given index.
+---___
+---@param miz_index integer Index of mission to run.
+---@return boolean success Was the mission successfully started or not.
+function net.missionlist_run(miz_index) end
+
+--- # SERVER ONLY
+---___
+---Clear the entire mission list.
+---___
+---@return boolean success Was the mission list successfully cleared.
+function net.missionlist_clear() end
