@@ -91,6 +91,7 @@ function net.json2lua(json) end
 function net.kick(playerId, message) end
 
 ---# SERVER ONLY
+---Not available in mission scripting environment
 ---___
 ---Loads the specified mission.<br>
 ---Example: Loads a mission from your saved games/missions folder. 
@@ -102,6 +103,7 @@ function net.kick(playerId, message) end
 function net.load_mission(fileName) end
 
 ---# SERVER ONLY
+---Not available in mission scripting environment
 ---___
 ---Loads the next mission from the server mission list.
 ---@return boolean -- True if the next mission was successfully loaded, false if at the end of the list.
@@ -175,25 +177,27 @@ function net.get_chat_history(from) end
 ---@field banned_until number Unix time of ban end.
 
 ---# SERVER ONLY
+---Not available in mission scripting environment
 ---___
 ---Returns an array of active ban records.
 ---___
 ---Each record contains:
---- - 'ucid': Unique Client IDentifier
---- - 'ipaddr': IP address string
---- - 'name': player name at the time of the ban
---- - 'reason': ban reason string
---- - 'banned_from': unix-time of ban start
---- - 'banned_until': unix-time of ban end
+--- - `ucid`: Unique Client IDentifier
+--- - `ipaddr`: IP address string
+--- - `name`: player name at the time of the ban
+--- - `reason`: ban reason string
+--- - `banned_from`: unix-time of ban start
+--- - `banned_until`: unix-time of ban end
 ---___
 ---@return netBanPlayerInfo[] netPlayerBans Array of netBanPlayerInfo tables.   
 function net.banlist_get() end
 
 
 --- # SERVER ONLY
+---Not available in mission scripting environment
 ---___
 ---Adds a ban and kicks the player of 'id'. <br>
----'period' is the duration of ban in seconds.
+---`period` is the duration of ban in seconds.
 ---___
 ---@param id string UCID of player to ban.
 ---@param period integer Number of seconds to ban the player.
@@ -203,6 +207,7 @@ function net.banlist_add(id, period, reason) end
 
 
 --- # SERVER ONLY
+---Not available in mission scripting environment
 ---___
 ---Lifts the ban from a player with the given 'ucid'.
 ---___
@@ -217,6 +222,7 @@ function net.banlist_remove(ucid) end
 ---@field current string Name of the current mission.
 
 --- # SERVER ONLY
+---Not available in mission scripting environment
 ---___
 ---Returns a table with current mission list.
 ---___
@@ -230,6 +236,7 @@ function net.banlist_remove(ucid) end
 function net.missionlist_get() end
 
 --- # SERVER ONLY
+---Not available in mission scripting environment
 ---___
 ---Adds a mission to the list.
 ---___
@@ -238,6 +245,7 @@ function net.missionlist_get() end
 function net.missionlist_append(miz_filename) end
 
 --- # SERVER ONLY
+---Not available in mission scripting environment
 ---___
 ---Deletes a mission from the list at the given index.
 ---___
@@ -246,6 +254,7 @@ function net.missionlist_append(miz_filename) end
 function net.missionlist_delete(miz_index) end
 
 --- # SERVER ONLY
+---Not available in mission scripting environment
 ---___
 ---Moves a mission to a new location in the list.
 ---___
@@ -255,6 +264,7 @@ function net.missionlist_delete(miz_index) end
 function net.missionlist_move(old_index, new_index) end
 
 --- # SERVER ONLY
+---Not available in mission scripting environment
 ---___
 ---Set the server to shuffle, or not to shuffle, the mission list.
 ---___
@@ -262,6 +272,7 @@ function net.missionlist_move(old_index, new_index) end
 function net.missionlist_set_shuffle(bool) end
 
 --- # SERVER ONLY
+---Not available in mission scripting environment
 ---___
 ---Set the server to loop, or not to loop, the mission list.
 ---___
@@ -269,6 +280,7 @@ function net.missionlist_set_shuffle(bool) end
 function net.missionlist_set_loop(bool) end
 
 --- # SERVER ONLY
+---Not available in mission scripting environment
 ---___
 ---Runs a mission at the given index.
 ---___
@@ -277,6 +289,7 @@ function net.missionlist_set_loop(bool) end
 function net.missionlist_run(miz_index) end
 
 --- # SERVER ONLY
+---Not available in mission scripting environment
 ---___
 ---Clear the entire mission list.
 ---___
