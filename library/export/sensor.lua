@@ -1,5 +1,6 @@
 ---@meta
 
+---@deprecated Returns nil.
 function LoGetTWSInfo() end
 
 --[[
@@ -43,8 +44,10 @@ function LoGetTWSInfo() end
 ---___
 --- Returns an array of current targets.
 ---___
+---@deprecated Returns nil.
 ---@return TargetInfo[] targetInfo Array of current targets. [TargetInfo](lua://TargetInfo).
 function LoGetTargetInformation() end
+
 
 --- ## PREREQUISITE
 --- - Only available on clients (multiplayer) when [Export.LoIsSensorExportAllowed](lua://Export.LoIsSensorExportAllowed) is true.<br>
@@ -52,9 +55,24 @@ function LoGetTargetInformation() end
 ---___
 ---Returns an array of current locked targets.
 ---___
+---@deprecated Returns nil.
 ---@return TargetInfo[] targetInfo Array of current locked targets. [TargetInfo](lua://TargetInfo).
 function LoGetLockedTargetInformation() end
 
+
+---@deprecated Returns nil.
 function LoGetF15_TWS_Contacts() end
+
+
+---@deprecated Returns nil.
 function LoGetSightingSystemInfo() end
+
+
+--- ## PREREQUISITE
+--- - Only available on clients (multiplayer) when [Export.LoIsSensorExportAllowed](lua://Export.LoIsSensorExportAllowed) is true.<br>
+--- - Server must have 'Allow sensor export' enabled.
+---___
+---Returns an array of wingman target locations.
+---___
+---@return vec3[] wingTargets Array of wingman target locations.
 function LoGetWingTargets() end

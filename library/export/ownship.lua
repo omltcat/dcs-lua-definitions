@@ -9,6 +9,7 @@
 ---@return integer playerPlayId Player's plane Id.
 function LoGetPlayerPlaneId() end
 
+
 --- ## PREREQUISITE
 --- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
 --- - Server must have 'Allow player export' enabled.
@@ -17,6 +18,7 @@ function LoGetPlayerPlaneId() end
 ---___
 ---@return number playerAirSpeed Player's indicated airspeed in m/s.
 function LoGetIndicatedAirSpeed() end
+
 
 --- ## PREREQUISITE
 --- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
@@ -27,6 +29,7 @@ function LoGetIndicatedAirSpeed() end
 ---@return number playerAOA Player's angle of atack in radians.
 function LoGetAngleOfAttack() end
 
+
 --- ## PREREQUISITE
 --- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
 --- - Server must have 'Allow player export' enabled.
@@ -35,6 +38,7 @@ function LoGetAngleOfAttack() end
 ---___
 ---@return number playerAOSS Player's angle of side slip.
 function LoGetAngleOfSideSlip() end
+
 
 ---@class (exact) AccelerationUnits
 ---@field x number X acceleration in G.
@@ -51,6 +55,7 @@ AccelerationUnits = {}
 ---@return AccelerationUnits accelerationUnits Table of [AccelerationUnits](lua://AccelerationUnits).
 function LoGetAccelerationUnits() end
 
+
 --- ## PREREQUISITE
 --- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
 --- - Server must have 'Allow player export' enabled.
@@ -59,6 +64,7 @@ function LoGetAccelerationUnits() end
 ---___
 ---@return number playerVerticleVelocity Player's verticle velocity in m/s.
 function LoGetVerticalVelocity() end
+
 
 --- ## PREREQUISITE
 --- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
@@ -69,6 +75,7 @@ function LoGetVerticalVelocity() end
 ---@return number playerADI Player's ADI in radians.
 function LoGetADIPitchBankYaw() end
 
+
 --- ## PREREQUISITE
 --- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
 --- - Server must have 'Allow player export' enabled.
@@ -77,6 +84,7 @@ function LoGetADIPitchBankYaw() end
 ---___
 ---@return number playerTrueAirspeed Player's true airspeed in m/s.
 function LoGetTrueAirSpeed() end
+
 
 --- ## PREREQUISITE
 --- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
@@ -87,6 +95,7 @@ function LoGetTrueAirSpeed() end
 ---@return number playerASL Player's altitude above seal level in meters.
 function LoGetAltitudeAboveSeaLevel() end
 
+
 --- ## PREREQUISITE
 --- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
 --- - Server must have 'Allow player export' enabled.
@@ -95,6 +104,7 @@ function LoGetAltitudeAboveSeaLevel() end
 ---___
 ---@return number playerAGL Player's altitude above ground level in meters.
 function LoGetAltitudeAboveGroundLevel() end
+
 
 --- ## PREREQUISITE
 --- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
@@ -106,7 +116,15 @@ function LoGetAltitudeAboveGroundLevel() end
 function LoGetMachNumber() end
 
 
+--- ## PREREQUISITE
+--- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
+--- - Server must have 'Allow player export' enabled.
+--- ___
+---Returns the player's radar altimeter in meters.
+---___
+---@return number radarAltimeter Player's radar altimeter in meters.
 function LoGetRadarAltimeter() end
+
 
 --- ## PREREQUISITE
 --- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
@@ -117,14 +135,17 @@ function LoGetRadarAltimeter() end
 ---@return number playerMagneticYaw Player's magnetic yaw in radians.
 function LoGetMagneticYaw() end
 
+
 --- ## PREREQUISITE
 --- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
 --- - Server must have 'Allow player export' enabled.
 --- ___
 ---Returns the player's glide deviation.
 ---___
+---@deprecated Returns nil.
 ---@return number playerGlideDeviation Player's glide deviation.
 function LoGetGlideDeviation() end
+
 
 --- ## PREREQUISITE
 --- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
@@ -132,8 +153,10 @@ function LoGetGlideDeviation() end
 --- ___
 ---Returns the player's side deviation.
 ---___
+---@deprecated Returns nil.
 ---@return number playerSideDeviation Player's side deviation.
 function LoGetSideDeviation() end
+
 
 --- ## PREREQUISITE
 --- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
@@ -141,8 +164,10 @@ function LoGetSideDeviation() end
 --- ___
 ---Retuens the player's slip ball position.
 ---___
+---@deprecated Returns nil.
 ---@return number playerSlipBallPosition Player's slip ball position.
 function LoGetSlipBallPosition() end
+
 
 --- ## PREREQUISITE
 --- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
@@ -150,6 +175,7 @@ function LoGetSlipBallPosition() end
 --- ___
 ---Returns the basic atmosphere pressure in mm hg.
 ---___
+---@deprecated Returns nil.
 ---@return number basicAtmospherePressure Basic atmosphere pressure in mm hg.
 function LoGetBasicAtmospherePressure() end
 
@@ -170,6 +196,7 @@ ControlPanelHSI = {}
 --- ___
 ---Returns a table of the player's HSI data.
 ---___
+---@deprecated Returns nil.
 ---@return ControlPanelHSI controlPanelHSI Player's [ControlPanelHSI](lua://ControlPanelHSI) data.
 function LoGetControlPanel_HSI() end
 
@@ -235,8 +262,27 @@ function LoGetSelfData() end
 ---@return pos3 cameraPosition Current camera position in .
 function LoGetCameraPosition() end
 
-function LoSetCameraPosition() end
-function LoSetCommand() end
+
+--- ## PREREQUISITE
+--- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
+--- - Server must have 'Allow player export' enabled.
+--- ___
+---Sets the current camera position
+---___
+---@param position pos3 [pos3](lua://pos3) Position to set view camera.
+function LoSetCameraPosition(position) end
+
+
+--- ## PREREQUISITE
+--- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
+--- - Server must have 'Allow player export' enabled.
+--- ___
+---Sets a command value.
+---___
+---@param command number Number of the command to set.
+---@param value number Command value from -1.0 to 1.0.
+function LoSetCommand(command, value) end
+
 
 ---Aircrafts MCP state.
 ---@class (exact) MCPState
@@ -372,11 +418,62 @@ SystemMode = {
 --- ___
 ---Returns the player's ACS [SystemMode](lua://SystemMode) information.
 ---___
+---@deprecated Returns nil.
 ---@return SystemMode systemMode Player's ACS [SystemMode](lua://SystemMode) information.
 function LoGetNavigationInfo() end
 
 
+---Station information.
+---___
+---Stations may contain a container (i.e. a rack) or a weapon.
+---___
+---@class (exact) StationInfo
+---@field CLSID string CLSID of container or item.
+---@field container boolean Is item a container or not.
+---@field count integer Number of weapons.
+---@field weapon wsType [wsType](lua://wsType) of weapon.
+---@field adapter wsType [wsType](lua://wsType) of adapter (only if station is a container).
+---@field wstype wsType [wsType](lua://wsType) of container (only if station is a container).
+StationInfo = {}
+
+---Player's payload information
+---@class (exact) PayloadInfo
+---@field CurrentStation integer Current station.
+---@field Stations StationInfo[] Array of [StationInfo](lua://StationInfo).<br>The index of the station is the station number on the aircraft.
+PayloadInfo = {
+    ---Cannon information.
+    ---@class (exact) Cannon
+    ---@field shells integer Number of shells.
+    Cannon = {} ---@diagnostic disable-line: inject-field
+}
+
+--- ## PREREQUISITE
+--- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
+--- - Server must have 'Allow player export' enabled.
+--- ___
+---Returns the player's [PayloadInfo](lua://PayloadInfo).
+---___
+---@return PayloadInfo payLoadInfo Player's [PayloadInfo](lua://PayloadInfo).
 function LoGetPayloadInfo() end
+
+
+---Player's wingman information.
+---@class (exact) WingmenInfo
+---@field ordered_task string Name of ordered task.
+---@field current_task string Name of current task.
+---@field ordered_target integer World Id of ordered target.
+---@field current_target integer World Id of current target.
+---@field wingmen_id number World Id of wingman.
+---@field wingmen_position pos3 Position of wingmen.
+WingInfo = {}
+
+--- ## PREREQUISITE
+--- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
+--- - Server must have 'Allow player export' enabled.
+--- ___
+---Returns an array of  [WingmenInfo](lua://WingmenInfo).
+---___
+---@return WingmenInfo[] wingmenInfo Array of [WingmenInfo](lua://WingmenInfo).
 function LoGetWingInfo() end
 
 
@@ -387,7 +484,7 @@ MechInfo = {
     ---@class (exact) canopy
     ---@field status integer Canopy status.
     ---@field value number Canopy value.
-    canopy = {},
+    canopy = {}, ---@diagnostic disable-line: inject-field
     
     ---Control surface status.
     ---@class (exact) controlsurfaces
@@ -473,8 +570,53 @@ MechInfo = {
 function LoGetMechInfo() end
 
 
+---Radio beacon status data.
+---@class (exact) RadioBeaconStatus
+---@field airfield_near any
+---@field airfield_far any
+---@field course_deviation_beacon_lock any
+---@field glideslope_deviation_beacon_lock any
+
+--- ## PREREQUISITE
+--- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
+--- - Server must have 'Allow player export' enabled.
+--- ___
+---Returns the player's [RadioBeaconStatus](lua://RadioBeaconStatus) information.
+---___
+---@return RadioBeaconStatus radioBeaconStatus Player's [RadioBeaconStatus](lua://RadioBeaconStatus) information.
+---@deprecated Returns nil.
 function LoGetRadioBeaconsStatus() end
+
+
+---Vector velocity in world axis.
+---@class (exact) VectorVelocity
+---@field x number x vector velocity (world axis).
+---@field y number y vector velocity (world axis).
+---@field z number z vector velocity (world axis).
+
+--- ## PREREQUISITE
+--- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
+--- - Server must have 'Allow player export' enabled.
+--- ___
+---Returns [VectorVelocity](lua://VectorVelocity) of self velocity (world axis).
+---___
+---@return VectorVelocity vectorVelocity [VectorVelocity](lua://VectorVelocity) of self volcity (world axis).
 function LoGetVectorVelocity() end
+
+
+---Vector wind velocity in world axis.
+---@class (exact) VectorWindVelocity
+---@field x number x vector wind velocity (world axis).
+---@field y number y vector wind velocity (world axis).
+---@field z number z vector wind velocity (world axis).
+
+--- ## PREREQUISITE
+--- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
+--- - Server must have 'Allow player export' enabled.
+--- ___
+---Returns [VectorWindVelocity](lua://VectorWindVelocity) of self velocity (world axis).
+---___
+---@return VectorWindVelocity vectorWindVelocity [VectorWindVelocity](lua://VectorWindVelocity) of self volcity (world axis).
 function LoGetVectorWindVelocity() end
 
 
@@ -493,7 +635,29 @@ function LoGetVectorWindVelocity() end
 function LoGetSnares() end
 
 
+---Angular velocity euler angles , rad per sec.
+---@class (exact) AngularVelocity
+---@field x number x angular velocity (euler angles , rad per sec).
+---@field y number y angular velocity (euler angles , rad per sec).
+---@field z number z angular velocity (euler angles , rad per sec).
+
+--- ## PREREQUISITE
+--- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
+--- - Server must have 'Allow player export' enabled.
+--- ___
+---Returns [AngularVelocity](lua://AngularVelocity) of self angular velocity euler angles , rad per sec.
+---___
+---@return AngularVelocity angularVelocity [AngularVelocity](lua://AngularVelocity) of self volcity (world axis).
 function LoGetAngularVelocity() end
+
+
+--- ## PREREQUISITE
+--- - Only available on clients (multiplayer) when [Export.LoIsOwnshipExportAllowed](lua://Export.LoIsOwnshipExportAllowed) is true.<br>
+--- - Server must have 'Allow player export' enabled.
+--- ___
+---Return value unkonwn number.
+---___
+---@return number heightWithObjects Unknown
 function LoGetHeightWithObjects() end
 
 
