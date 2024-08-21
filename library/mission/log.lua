@@ -53,6 +53,28 @@ log = {}
 function log.write(subsystem_name, log_level, message, ...) end
 
 
+---Output log.DEBUG message from the current environment.<br>
+---Note: With the default log level settings, debug messages are not written to the dcs.log file.
+---@param message string
+function log.debug(message) end
+
+---Output log.INFO message from the current environment to the dcs.log file.
+---@param message string
+function log.info(message) end
+
+---Output log.WARNING message from the current environment to the dcs.log file.
+---@param message string
+function log.warning(message) end
+
+---Output log.ERROR message from the current environment to the dcs.log file.
+---@param message string
+function log.error(message) end
+
+---Output log.ALERT message from the current environment to the dcs.log file.
+---@param message string
+function log.alert(message) end
+
+
 ---Sends the message to the logger. If there are any arguments after message, the actual string is formed as string.format(message, ...)
 ---___
 ---So, in order to save net.trace(msg) messages to a file, you should issue a call:
