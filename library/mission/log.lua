@@ -1,11 +1,12 @@
 ---@meta
 
+
 ---Logging works as follows:
 --- - Each log message is accompanied with 2 attributes: a subsystem, and level.
 --- - After each message gets into the logger it passes (asynchronously) through a series of output filters which decide where the message will be written to.
 ---___
 ---log.* API is also available from the Saved Games\DCS\Config\autoexec.cfg file so you can control log output in you local machine.
----@class log
+---@class (exact) log
 ---@field ALERT 2 Alert level logging.
 ---@field ERROR 8 Error level logging.
 ---@field WARNING 16 Warning level logging.
@@ -50,28 +51,33 @@ log = {}
 ---@param log_level logLevel [logLevel](lua://logLevel) to log message to.
 ---@param message string If there are any arguments after message, the actual string is formed as string.format(message, ...)
 ---@param ... unknown string.format arguments.
+---@diagnostic disable-next-line:inject-field
 function log.write(subsystem_name, log_level, message, ...) end
-
 
 ---Output log.DEBUG message from the current environment.<br>
 ---Note: With the default log level settings, debug messages are not written to the dcs.log file.
 ---@param message string
+---@diagnostic disable-next-line:inject-field
 function log.debug(message) end
 
 ---Output log.INFO message from the current environment to the dcs.log file.
 ---@param message string
+---@diagnostic disable-next-line:inject-field
 function log.info(message) end
 
 ---Output log.WARNING message from the current environment to the dcs.log file.
 ---@param message string
+---@diagnostic disable-next-line:inject-field
 function log.warning(message) end
 
 ---Output log.ERROR message from the current environment to the dcs.log file.
 ---@param message string
+---@diagnostic disable-next-line:inject-field
 function log.error(message) end
 
 ---Output log.ALERT message from the current environment to the dcs.log file.
 ---@param message string
+---@diagnostic disable-next-line:inject-field
 function log.alert(message) end
 
 
@@ -96,5 +102,6 @@ function log.alert(message) end
 ---@param rule_subsystem_name string Name of the subsystem whose messages to write or empty string to match all subsystems.
 ---@param rule_level_mask logLevel|integer [logLevel](lua://logLevel) of logging.
 ---@param ... logOutput|integer Sum of [logOutput](lua://logOutput) flags.
+---@diagnostic disable-next-line:inject-field
 function log.set_output(log_file_name_wo_ext, rule_subsystem_name, rule_level_mask, ...) end
 
