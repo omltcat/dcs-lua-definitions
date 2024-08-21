@@ -6,20 +6,20 @@
 ---___
 ---log.* API is also available from the Saved Games\DCS\Config\autoexec.cfg file so you can control log output in you local machine.
 ---@class log
----@field ALERT integer Alerta level logging.
----@field ERROR integer Error level logging.
----@field WARNING integer Warning level logging.
----@field INFO integer Info level logging.
----@field DEBUG integer Debug level logging.
----@field ALL integer Alert, error, warning, info and debug level logging.
----@field TRACE integer Trace level logging. A special level which is excluded from the dsc.log file.
----@field MESSAGE integer Log message.
----@field TIME_UTC integer Log UTC time.
----@field TIME_LOCAL integer Log local time.
----@field TIME_RELATIVE integer Log relative time.
----@field MODULE integer Log module name. This is a subsystem module, not a DLC module.
----@field LEVEL integer Log log level.
----@field FULL integer Log message, UTC time, module name and log level.
+---@field ALERT 2 Alert level logging.
+---@field ERROR 8 Error level logging.
+---@field WARNING 16 Warning level logging.
+---@field INFO 64 Info level logging.
+---@field DEBUG 128 Debug level logging.
+---@field ALL 255 Alert, error, warning, info and debug level logging.
+---@field TRACE 256 Trace level logging. A special level which is excluded from the dcs.log file.
+---@field MESSAGE 0 Log message.
+---@field TIME_UTC 1 Log UTC time.
+---@field TIME_LOCAL 129 Log local time.
+---@field TIME_RELATIVE 128 Log relative time.
+---@field MODULE 4 Log module name. This is a subsystem module, not a DLC module.
+---@field LEVEL 2 Log log level.
+---@field FULL 271 Log message, UTC time, module name and log level.
 log = {}
 
 
