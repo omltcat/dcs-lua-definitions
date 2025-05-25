@@ -106,14 +106,13 @@ function trigger.action.arrowToAll(coalition, id, startPoint, endPoint, color, f
 ---@param coalition coalition.side|integer -- The coalition id.
 ---@param id integer -- The unique id.
 ---@param point1 vec3 -- The start of the polygon.
----@param point2 vec3 -- The next of the polygon.
 ---@param pointN vec3 -- Any rest of the points of the polygon.
 ---@param color table -- The color of the outline.
 ---@param fillColor table -- The color used for shading the shape.
 ---@param lineType integer -- The type of the line.
 ---@param readOnly? boolean -- Whether the circle is read only.
 ---@param message? string -- The message to display when the circle is added.
-function trigger.action.markupToAll(shapeId, coalition, id, point1, point2, pointN, color, fillColor, lineType, readOnly, message) end
+function trigger.action.markupToAll(shapeId, coalition, id, point1, pointN, color, fillColor, lineType, readOnly, message) end
 
 ---Creates a circle on the map with a given radius, color, fill color, and outline. <br>
 ---Coalition Ids to be used: 
